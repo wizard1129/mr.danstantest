@@ -1,0 +1,35 @@
+import pgzrun
+
+TITLE = "Mr. Dastan's Test: Move the ship"
+
+HEIGHT = 500
+WIDTH = 500
+
+galaga = Actor('galaga')
+
+def draw():
+    screen.blit("bacck-2",(0,0))
+    galaga.draw()
+    if galaga.x == (0) and galaga.y == (0):
+        screen.draw.text("Welcome to space. Have fun!", (150,0))
+
+
+def update():
+
+    if keyboard.left:
+        galaga.x = galaga.x - 2
+        if galaga.x <= 0:
+            galaga.x = 0
+    if keyboard.right:
+        galaga.x = galaga.x + 2
+        if galaga.x >= WIDTH:
+            galaga.x = WIDTH
+    if keyboard.up:
+        galaga.y = galaga.y - 2
+        if galaga.y <= 0:
+            galaga.y = 0
+    if keyboard.down:
+        galaga.y = galaga.y + 2
+        if galaga.y >= HEIGHT:
+            galaga.y = HEIGHT
+pgzrun.go()
